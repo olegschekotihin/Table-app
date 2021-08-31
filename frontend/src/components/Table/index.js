@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Row from "../Row/index"
+import HeadRow from "../HeadRow";
 import Pagination from "../Pagination";
+import HeadColumn from "../HeadColumn";
+import Input from "../Input";
 
 function Table({pageSize, usersData}) {
     const [filterValue, setFilterValue] = useState();
     const [dataValue, setDataValue] = useState();
     const [newUsers, setNewUsers] = useState([]);
     const [hidePagination, setHidePagination] = useState(true)
+    console.log(pageSize)
 
     let rowInPage = pageSize ? pageSize : null
     let newRowInPage;
