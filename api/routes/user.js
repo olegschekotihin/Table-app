@@ -1,6 +1,6 @@
 const {Router} = require('express')
 const router = Router()
-const User = require('../models/user')
+const UserController = require('../controllers/user')
 
 /**
  * @swagger
@@ -12,14 +12,7 @@ const User = require('../models/user')
  *         description: Success
  *
  */
-router.get('/getAll', async (req, res) => {
-    try{
-        const users = await User.find({}).select('-_id -__v')
-        res.send(users)
-    } catch (e) {
-        throw new Error(e)
-    }
-})
+router.get('/getAll', UserController.getAllUsers)
 
 /**
  * @swagger
@@ -39,21 +32,6 @@ router.get('/getAll', async (req, res) => {
  *
  *
  */
-router.post('/add', async (req, res) => {
-    const user = await new User({
-        userId: req.body.id,
-        firstName: req.body.firstName,
-        secondName: req.body.secondName,
-        age: req.body.age,
-        sex: req.body.sex,
-        organization: req.body.organization
-    })
-    try{
-        await user.save()
-        res.redirect('/')
-    } catch (e) {
-        throw new Error(e)
-    }
-})
+router.post('/add', UserController.createUser)
 
 module.exports = router

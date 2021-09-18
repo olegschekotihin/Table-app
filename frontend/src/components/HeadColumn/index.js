@@ -1,11 +1,11 @@
 import React from "react";
 import Input from "../Input";
 
-function HeadColumn({value, id, onchange, dataAttr}) {
-    return(
+function HeadColumn({value, id, callback, dataAttr}) {
+    return (
         <th key={id}>
-            {value}
-            <Input onChange={onchange} dataAttr={'userId'}/>
+            <p>{value}</p>
+            <Input onchange={callback} dataAttr={value}/>
         </th>
     )
 }

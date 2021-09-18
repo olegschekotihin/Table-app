@@ -10,7 +10,7 @@ function App() {
             .then((res) => {
                 setUsers(res.data)
             }).catch((e) => {
-            console.log(e)
+                console.log(e)
         })
     }, []);
 
