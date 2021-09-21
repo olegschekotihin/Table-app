@@ -7,22 +7,20 @@ function Table({pageSize, usersData}) {
     const [filterValue, setFilterValue] = useState();
     const [dataValue, setDataValue] = useState();
     const [newUsers, setNewUsers] = useState([]);
-
-
     const [currentPage, setCurrentPage] = useState(1);
-
     let rowInPage = pageSize ? pageSize : null
-    let currentDataLength = usersData.length
-
+    const initDataLength = usersData.length
+    const [currentDataLength, setCurrentDataLength] = useState(initDataLength)
     // Get current posts
     const indexOfLastPost = currentPage * rowInPage;
     const indexOfFirstPost = indexOfLastPost - rowInPage;
-    const currentData = usersData.slice(indexOfFirstPost, indexOfLastPost);
-
+    const currentData = newUsers.slice(indexOfFirstPost, indexOfLastPost);
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
     useEffect( () => {
         setNewUsers(usersData)
+        setCurrentDataLength(usersData.length)
+        // setCurrentDataLength(usersData.length)
     }, [usersData])
 
     useEffect(() => {
@@ -34,25 +32,22 @@ function Table({pageSize, usersData}) {
                     current = keys[i]
                 }
             }
-            if(elem[current] === filterValue) {
+            if(elem[current] == filterValue) {
                 return elem
             }
         })
-        if(newUserData.length !==0 ) {
-            if(newUserData.length < rowInPage) {
-            }
+        if(newUserData.length !== 0 ) {
             setNewUsers(newUserData)
+            setCurrentDataLength(newUserData.length)
         } else {
             setNewUsers(usersData)
-
+            setCurrentDataLength(usersData.length)
         }
     },[filterValue])
 
     const onChange = (event) => {
         setFilterValue(event.target.value);
-        console.log('filrValue', filterValue)
         setDataValue(event.target.dataset["name"]);
-        console.log('dataValue', dataValue)
     }
 
     return (

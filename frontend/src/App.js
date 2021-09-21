@@ -18,7 +18,7 @@ function App() {
       <div className="App">
         <Table
           usersData={users}
-          pageSize={8}
+          pageSize={4}
         />
       </div>
     );
