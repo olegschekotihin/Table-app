@@ -1640,12 +1640,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -1672,7 +1673,7 @@
       <workItem from="1632772790822" duration="3949000" />
       <workItem from="1634160802802" duration="1924000" />
       <workItem from="1634196953821" duration="12077000" />
-      <workItem from="1634844581824" duration="1112000" />
+      <workItem from="1634844581824" duration="1580000" />
     </task>
     <task id="LOCAL-00001" summary="fix IDE git problems">
       <created>1630393272313</created>
