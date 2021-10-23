@@ -1,4 +1,5 @@
 import React from "react";
+import styled from 'styled-components';
 import Input from "../Input";
 
 export interface HeadColumnProps {
@@ -7,14 +8,18 @@ export interface HeadColumnProps {
   onchange: () => void
 }
 
+const TH = styled.td`
+  font-size: 20px;
+`;
+
 function HeadColumn({value, id, onchange}: HeadColumnProps) {
   return (
-    <th key={id}>
-      <p>{value}</p>
+    <TH key={id}>
+      {value}
       <Input
         onchange={onchange}
         dataAttr={value}/>
-    </th>
+    </TH>
   )
 }
 

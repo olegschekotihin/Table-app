@@ -1,10 +1,27 @@
 import React from "react";
+import styled from 'styled-components';
 
 export interface PaginationProps {
   postsPerPage: number
   totalPosts: number
   onPaginate: any
 }
+
+const PaginateList = styled.ul`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+`;
+
+const PaginateLink = styled.a`
+  display: block;
+  color: #000;
+  padding: 5px 10px;
+  border: 1px solid #e3e3e3;
+  margin-right: 5px;
+  text-decoration: none;
+`;
 
 const Pagination = ({ postsPerPage, totalPosts, onPaginate }: PaginationProps) => {
   const pageNumbers:number[] = [];
@@ -15,15 +32,15 @@ const Pagination = ({ postsPerPage, totalPosts, onPaginate }: PaginationProps) =
 
   return (
     <nav>
-      <ul className='pagination'>
+      <PaginateList>
         {pageNumbers.map(number => (
-          <li key={number} className='page-item'>
-            <a onClick={() => onPaginate(number)} href='#' className="pagination__item">
+          <li key={number}>
+            <PaginateLink onClick={() => onPaginate(number)} href='#'>
               {number}
-            </a>
+            </PaginateLink>
           </li>
         ))}
-      </ul>
+      </PaginateList>
     </nav>
   );
 };

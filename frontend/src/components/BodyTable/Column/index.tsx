@@ -1,17 +1,21 @@
 import React from "react";
+import styled from 'styled-components';
 
 export interface ColumnProps {
   value: string
   id: number
 }
 
+const TableColumn = styled.td`
+  padding: 10px;
+`;
+
 function Column({value, id}:ColumnProps) {
   return (
-    <td
-      className='table__column'
+    <TableColumn
       data-id={id}>
       {value}
-    </td>
+    </TableColumn>
   )
 }
 

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import styled from 'styled-components';
 import Row from "../BodyTable/Row"
 import HeadRow from "../HeadTable/HeadRow";
 import Pagination from "../BodyTable/Pagination";
@@ -8,7 +9,7 @@ export interface TableProps {
   usersData: any
 }
 
-function Table({pageSize, usersData}:TableProps) {
+function ResponsiveTable({pageSize, usersData}:TableProps) {
   const [filterDataValue, setFilterDataValue] = useState<string>('');
   const [dataValue, setDataValue] = useState<string>('');
   const [newUsersData, setNewUsersData] = useState([]);
@@ -57,8 +58,8 @@ function Table({pageSize, usersData}:TableProps) {
   const onPaginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
-    <div className='container'>
-      <table className='table'>
+    <div>
+      <table>
         <thead>
         <HeadRow
           param={newUsersData}
@@ -79,4 +80,4 @@ function Table({pageSize, usersData}:TableProps) {
   );
 }
 
-export default Table
+export default ResponsiveTable
